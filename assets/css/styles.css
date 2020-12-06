@@ -1,0 +1,455 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    outline: none;
+    user-select: none;
+}
+
+html{
+    font-size: 16px;
+    background-color: #1b1b1b;
+    overflow-x: hidden;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+button{
+    cursor: pointer;
+}
+
+.preload-img{
+    display: none;
+}
+
+@media only screen and (min-width: 1367px){
+    html{
+        font-size: 23px;
+    }
+}
+
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: 0.3s ease;
+}
+
+.loader h1{
+    color: transparent;
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    -webkit-text-stroke: 0.5px white;
+    animation: 1.5s loader infinite;
+}
+
+@keyframes loader {
+    0% {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+    100% {
+        color: transparent;
+    }
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 6rem;
+    font-size: 0.75rem;
+    transition: 1s ease;
+    opacity: 0;
+}
+
+nav > h1 {
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+    z-index: 999;
+}
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    position: absolute;
+    left: calc(50vw - 6rem);
+}
+
+nav ul li{
+    text-transform: uppercase;
+    opacity: 0.75;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+nav ul li:hover{
+    opacity: 1;
+}
+
+nav .burger{
+    width: 2rem;
+    height: 2rem;
+    border: thin solid white;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    transition: 0.3s ease-in-out;
+    z-index: 999;
+}
+
+nav .burger-active{
+    background-color: white;
+    gap: 0rem;
+}
+
+nav .burger:hover{
+    background-color: white;
+}
+
+nav .burger-active:hover{
+    background-color: transparent;
+}
+
+nav .burger .line{
+    width: 1rem;
+    height: 0.05rem;
+    background-color: white;
+    transition: 0.3s ease-in-out;
+}
+
+nav .burger-active .line{
+    background-color: #1b1b1b;
+}
+
+nav .burger:hover .line{
+    background-color: #1b1b1b;
+}
+
+nav .burger-active:hover .line{
+    background-color: white;
+}
+
+nav .burger-active .line1{
+    transform: rotate(45deg);
+}
+
+nav .burger-active .line2{
+    transform: rotate(-45deg);
+}
+
+.hero{
+    height: calc(100vh - 8rem);
+    margin: 1rem 6rem 0rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5rem;
+}
+
+.hero-one .hero-header h1{
+    font-size: 4rem;
+    letter-spacing: 0.3rem;
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: white;
+}
+
+.hero-one{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.hero-one .hero-header{
+    animation: 1s heroHeader 2s forwards ease;
+    transform: translate(calc(50vw - 17rem));
+}
+
+@keyframes heroHeader{
+    from {
+        transform: translate(calc(50vw - 17rem));
+    }
+    to {
+        transform: translate(0rem);
+    }
+}
+
+.hero-one .hero-shoes ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: 0.6s fadeIn 3s forwards;
+}
+
+.hero-shoes h1{
+    font-size: 1.5rem;
+    font-family: 'Monument Extended', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color: #1b1b1b;
+    padding: 0.25rem 0.5rem;
+    background-color: white;
+    border: thin solid white;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.hero-shoes h1:hover{
+    color: white;
+    background-color: transparent;
+}
+
+.hero-one .hero-shoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-one .hero-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.hero-two{
+    background: url('../img/stephan-schmid-ntnAuagWMI8-unsplash.jpg')rgba(27,27,27,1);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: 2s heroTwo 1s forwards ease;
+    z-index: 3;
+    transition: 0.3s ease-in-out;
+}
+
+.hero-two h1{
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 4rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    animation: 1s heroTwoHeader 2s forwards;
+}
+
+@keyframes heroTwo {
+    from{
+        background-color: rgba(27,27,27,1);
+    }
+    to{
+        background-color: rgba(27,27,27,0.2);
+    }
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heroTwoHeader{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+.hero-three{
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    gap: 1.5rem;
+}
+
+.hero-three > button{
+    background-color: white;
+    border: thick solid white;
+    text-transform: uppercase;
+    font-family: 'Monument Extended', sans-serif;
+    color: #1b1b1b;
+    font-size: 2.5rem;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+    animation: 0.6s fadeIn 3s forwards;
+}
+
+.hero-three > button:hover{
+    background-color: transparent;
+    color: white;
+}
+
+.hero-three .hero-sale{
+    background: url('../img/oscar-gutierrez-pldh-ckJbiI-unsplash.jpg'), rgba(0,0,0,0.3);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    transform: translateX(calc(17rem - 50vw));
+    animation: 1s heroSale 2s forwards ease;
+    z-index: 2;
+}
+
+@keyframes heroSale {
+    from {
+        transform: translateX(calc(18rem - 50vw));
+    }
+    to {
+        transform: translateX(0rem);
+    }
+}
+
+.hero-three h1{
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.15rem;
+    color: transparent;
+    -webkit-text-stroke: 0.5px white;
+}
+
+.hero-three .sale-section h2{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.hero-three .sale-section button{
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    border: thin solid white;
+    color: #1b1b1b;
+    font-weight: 700;
+    background-color: white;
+    transition: 0.3s ease-in-out;
+}
+
+.hero-three .sale-section button:hover{
+    background-color: transparent;
+    color: white;
+}
+
+.side-bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(27,27,27,1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 8;
+    transform: translateX(100vw);
+    transition: 1s ease;
+}
+
+.side-bar-active{
+    transform: translateX(0rem);
+}
+
+.side-bar ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.side-bar ul li{
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 4rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1.5px white;
+    transition: 0.3s ease;;
+}
+
+.side-bar ul li:hover{
+    letter-spacing: 0.4rem;
+    color: white;
+}
+
+.image{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-blend-mode: overlay;
+    z-index: 9;
+    opacity: 0;
+    transition: 0.6s ease;
+}
+
+.sneakers{
+    background-image: url('../img/sneakers.jpg');
+    background-color: rgba(27,27,27,0.5);
+}
+
+.loafers{
+    background-image: url('../img/loafers.jpg');
+    background-color: rgba(27,27,27,0.5);
+}
+
+.sports{
+    background-image: url('../img/sports.jpg');
+    background-color: rgba(27,27,27,0.5);
+}
+
+.boots{
+    background-image: url('../img/boots.jpg');
+    background-color: rgba(27,27,27,0.5);
+}
+
+.canvas{
+    background-image: url('../img/canvas.jpg');
+    background-color: rgba(27,27,27,0.5);
+}
