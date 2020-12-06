@@ -406,7 +406,8 @@ nav .burger-active .line2{
     text-transform: uppercase;
     color: transparent;
     -webkit-text-stroke: 1.5px white;
-    transition: 0.3s ease;;
+    transition: 0.3s ease;
+    z-index: 10;
 }
 
 .side-bar ul li:hover{
